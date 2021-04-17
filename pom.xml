@@ -23,6 +23,19 @@
         </dependency>
     </dependencies>
 
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+
     <build>
         <plugins>
             <plugin>
@@ -85,7 +98,44 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                    <encoding>UTF-8</encoding>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>veryhappy</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
+<!--        <pluginManagement>-->
+<!--            <plugins>-->
+<!--                <plugin>-->
+<!--                    <groupId>org.apache.maven.plugins</groupId>-->
+<!--                    <artifactId>maven-checkstyle-plugin</artifactId>-->
+<!--                    <version>3.1.2</version>-->
+<!--                    <dependencies>-->
+<!--                        <dependency>-->
+<!--                            <groupId>com.puppycrawl.tools</groupId>-->
+<!--                            <artifactId>checkstyle</artifactId>-->
+<!--                            <version>8.30</version>-->
+<!--                        </dependency>-->
+<!--                    </dependencies>-->
+<!--                </plugin>-->
+<!--            </plugins>-->
+<!--        </pluginManagement>-->
     </build>
 </project>
 
